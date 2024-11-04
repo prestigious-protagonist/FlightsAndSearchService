@@ -20,3 +20,4 @@
             "dialect": "mysql"
         }
 ```
+- Once you have created & added the details to `config.json`, go to `/src` and execute `npx sequelize db:create`
