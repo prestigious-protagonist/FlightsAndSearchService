@@ -1,3 +1,4 @@
 node_modules
 *.log()
 console.log()
+src/config/config.json
