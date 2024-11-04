@@ -20,4 +20,18 @@
             "dialect": "mysql"
         }
 ```
-- Once you have created & added the details to `config.json`, go to `/src` and execute `npx sequelize db:create`
+- Once you have created & added the details to `config.json`, go to `/src` and execute ->
+
+ ``` 
+ npx sequelize db:create
+ ```
+
+- To create the model execute ->
+```
+    npx sequelize model:generate --name `model-name` --attributes `attribute-name`:String
+```
+
+- To migrate the changes, go to `/src` and execute ->
+```
+    npx sequelize db:migrate
+```
