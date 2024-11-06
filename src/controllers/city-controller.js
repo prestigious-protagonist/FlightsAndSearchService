@@ -26,8 +26,7 @@ const destroy = async (req,res) => {
         // /city/:id
         const response = await cityService.deleteCity(req.params.id);
         return res.status(200).json({
-            data : city,
-            sucess : true,
+            success : true,
             message : "Successfully deleted a city",
             err : {}
         });
@@ -46,8 +45,8 @@ const update = async (req,res) => {
         // /city/:id + req.body (patch request)
         const response = await cityService.updateCity(req.params.id, req.body);
         return res.status(200).json({
-            data : city,
-            sucess : true,
+            data : response,    
+            success : true,
             message : "Successfully updated the city",
             err : {}
         });
@@ -66,7 +65,7 @@ const get = async (req,res) => {
 
     try {
         // /city/:id
-        const city = await cityService.deleteCity(req.params.id);
+        const city = await cityService.getCity(req.params.id);
         return res.status(200).json({
             data : city,
             sucess : true,
@@ -84,4 +83,4 @@ const get = async (req,res) => {
     }
 }
 
-module.exports ={ create, destroy, update, get}
+module.exports = { create, destroy, update, get}
