@@ -1,6 +1,3 @@
-
-const {City} = require('../models/index')
-
 const {City} = require('../models/index')
 
 class CityRepository{
