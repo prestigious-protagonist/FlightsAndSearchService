@@ -1,6 +1,11 @@
 const {City} = require('../models/index')
 
 class CityRepository{
+    constructor() {
+        if(CityRepository.instance) {
+            return CityRepository.instance;
+        }
+    }
     async createCity({name}){
         try {
             const city = await City.createCity({name});
@@ -17,6 +22,7 @@ class CityRepository{
                     id : cityId
                 }
             })
+            return true;
         } catch (error) {
             console.log("Something went wrong in the Repository layer");
             throw {error};

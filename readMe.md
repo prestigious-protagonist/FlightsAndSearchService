@@ -35,3 +35,6 @@
 ```
     npx sequelize db:migrate
 ```
+
+Create `201`
+Error `500`
