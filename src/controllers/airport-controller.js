@@ -39,4 +39,61 @@ const deleteAirport = async (req, res) => {
         })
     }
 }
-module.exports = { createAirport, deleteAirport }
+const updateAirport = async (req, res) => {
+    try {
+        const airport = await airportService.updateAirport(req.body);
+        return res.status(201).json({
+            data : airport,
+            sucess : true,
+            message : "Successfully updated the airport",
+            err : {}
+        });
+    } catch (error) {
+        console.log(error);
+        return res.status(500).json({
+            data : {},
+            success : false,
+            message : "Not able to update the airport",
+            err : error
+        })
+    }
+}
+
+const getAirport = async (req, res) => {
+    try {
+        const airport = await airportService.getAirport(req.params.id)
+        return res.status(200).json({
+            data : airport,
+            sucess : true,
+            message : "Successfully fetched the airport",
+            err : {}
+        })
+    } catch (error) {
+        return res.status(500).json({
+            data : {},
+            success : false,
+            message : "Not able to fetch the airport",
+            err : error
+        })  
+    }
+}
+const getAllAirports = async (req, res) => {
+    try {
+        const airports = await airportService.getAllAirports()
+        return res.status(200).json({
+            data : airports,
+            sucess : true,
+            message : "Successfully fetched the airports",
+            err : {}
+        })
+    } catch (error) {
+        return res.status(500).json({
+            data : {},
+            success : false,
+            message : "Not able to fetch the airports",
+            err : error
+        })  
+    }
+}
+
+module.exports = { createAirport, deleteAirport, updateAirport, getAirport, getAllAirports}

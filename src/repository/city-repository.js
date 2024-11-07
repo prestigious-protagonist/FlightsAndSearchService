@@ -1,5 +1,5 @@
 const { Op } = require("sequelize")
-const { City } = require('../models/index')
+const { City , Airport} = require('../models/index')
 
 class CityRepository{
     constructor() {
@@ -83,6 +83,19 @@ class CityRepository{
             return cities;
         } catch (error) {
             console.log("Something went wrong in the Repository layer");
+            throw {error};
+        }
+    }
+    async getAirportsByCityId(cityId) {
+        try {
+            const airports = await Airport.findAll({
+                where: { cityId, }
+              });
+              
+            return airports;
+        } catch (error) {
+            console.log("Something went wrong in the Repository layer");
+            console.log(error)
             throw {error};
         }
     }

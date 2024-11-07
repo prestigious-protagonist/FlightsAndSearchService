@@ -13,9 +13,9 @@ class AirportRepository {
             throw {error};
         }
     }
-    async updateAirport({name,cityId}) {
+    async updateAirport(airportId, name) {
         try {
-            const airport = await Airport.findByPk(cityId);
+            const airport = await Airport.findByPk(airportId);
             airport.name = name;
             await airport.save()
             return airport;
@@ -37,9 +37,9 @@ class AirportRepository {
             throw {error};
         }
     }
-    async getAirport(id) {
+    async getAirport(airportId) {
         try {
-            const airport = await Airport.findByPk(id)
+            const airport = await Airport.findByPk(airportId)
             return airport;
         } catch (error) {
             console.log("Something went wrong in the Repository layer");

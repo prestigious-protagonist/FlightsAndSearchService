@@ -60,6 +60,15 @@ const { CityRepository } = require('../repository/index');
             throw {error};
         }
     }
+    async getAirportsByCityId(cityId) {
+        try {
+            const cities = await this.cityRepository.getAirportsByCityId(cityId);
+            return cities;
+        } catch (error) {
+            console.log("Something went wrong at service layer");
+            throw {error};
+        }
+    }
 
 }
 module.exports = CityService;

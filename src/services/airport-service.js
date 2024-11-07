@@ -21,9 +21,9 @@ class AirportService {
             throw {error};
         }
     }
-    async updateAirport(cityId,data) {
+    async updateAirport({airportId,name}) {
         try {
-            const airport = await this.airportRepository.updateAirport(cityId,data); 
+            const airport = await this.airportRepository.updateAirport(airportId,name); 
             return airport;
         } catch (error) {               
             console.log("Something went wrong at service layer");
@@ -39,9 +39,9 @@ class AirportService {
             throw {error};
         }                       
     }
-    async getAirport(cityId) {
+    async getAirport(airportId) {
         try {
-            const airport = await this.airportRepository.getAirport(cityId);
+            const airport = await this.airportRepository.getAirport(airportId);
             return airport;
         } catch (error) {
             console.log("Something went wrong at service layer");
