@@ -1,65 +1,62 @@
-const { CityRepository } = require('../repository/index');
-
-    class CityService {
-        constructor () {
-        
-            this.cityRepository = new CityRepository();
-        }
-
-    async createCity(data) {
+const { AirportRepository } = require('../repository/index')
+class AirportService {
+    constructor() {
+        this.airportRepository = new AirportRepository();
+    }
+    async createAirport(data) {
         try {
-            const response = await this.cityRepository.createCity(data); 
+            const response = await this.airportRepository.createAirport(data); 
             return response;
         } catch (error) {
             console.log("Something went wrong at service layer");
             throw {error};
         }
     }
-    async createCities(data) {
+    async createAirports(data) {
         try {
-            const response = await this.cityRepository.createCities(data); 
+            const response = await this.airportRepository.createAirports(data); 
             return response;
         } catch (error) {
             console.log("Something went wrong at service layer");
             throw {error};
         }
     }
-    async updateCity(cityId,data) {
+    async updateAirport(cityId,data) {
         try {
-            const city = await this.cityRepository.updateCity(cityId,data); 
-            return city;
+            const airport = await this.airportRepository.updateAirport(cityId,data); 
+            return airport;
         } catch (error) {               
             console.log("Something went wrong at service layer");
             throw {error};
         }
     }
-    async deleteCity(cityId) {
+    async destroyAirport(cityId) {
         try {
-            const response = await this.cityRepository.deleteCity(cityId); 
+            const response = await this.airportRepository.destroyAirport(cityId); 
             return response;
         } catch (error) {
             console.log("Something went wrong at service layer");
             throw {error};
         }                       
     }
-    async getCity(cityId) {
+    async getAirport(cityId) {
         try {
-            const city = await this.cityRepository.getCity(cityId);
-            return city;
+            const airport = await this.airportRepository.getAirport(cityId);
+            return airport;
         } catch (error) {
             console.log("Something went wrong at service layer");
             throw {error};
         }
     }
-    async getAllCities(filter) {
+    async getAllAirports() {
         try {
-            const cities = await this.cityRepository.getAllCities({name : filter.name});
-            return cities;
+            const airports = await this.airportRepository.getAllAirports();
+            return airports;
         } catch (error) {
             console.log("Something went wrong at service layer");
             throw {error};
         }
     }
-
+    
 }
-module.exports = CityService;
+module.exports = AirportService;

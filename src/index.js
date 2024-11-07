@@ -16,13 +16,7 @@ const setupAndStartServer = async () => {
 
     app.listen( PORT,async()=> {
         console.log(`On port ${PORT}`)
-        const city = await City.findOne({
-            where: {
-                id: 9
-            }
-        })
-        const airports = await city.getAirports()
-        console.log(city, airports)
+        
     })
 }       
 setupAndStartServer()
